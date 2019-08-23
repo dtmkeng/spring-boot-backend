@@ -30,11 +30,11 @@ public class PostController {
     public Post Post() {
         return postRepository.findByTitle("test");
     }
-    @GetMapping("/comment/{id}")
-    public Collection<Comment> Customers(@PathVariable Long id) {
-        Post ps = postRepository.findByPostId(id);
-        Collection<Comment> commnet = commentRepository.findByPost(ps);
-        return commnet;
-    }
+    // @GetMapping("/comment/{id}")
+    // public Collection<Comment> Customers(@PathVariable Long id) {
+    //     Post ps = postRepository.findByPostId(id);
+    //     Collection<Comment> commnet = commentRepository.findByPost(ps);
+    //     return commnet;
+    // }
 
 }
