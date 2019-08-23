@@ -31,13 +31,6 @@ public class Post {
 
  
     @OneToMany(fetch = FetchType.EAGER ,mappedBy="post")
-    // @JoinColumn(name="comment_id")
     @JsonManagedReference
     private Collection<Comment> comment;
-
-    // public Post(String name, Book... books) {
-    //     this.name = name;
-    //     this.books = Stream.of(books).collect(Collectors.toSet());
-    //     this.books.forEach(x -> x.setBookCategory(this));
-    // }
 }

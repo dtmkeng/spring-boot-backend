@@ -19,17 +19,22 @@ public class DemoApplication {
 			// Create o
 			Post ps = new Post();
 			ps.setTitle("test");
-			postRepository.save(ps);
-			Post ps1 = postRepository.findByTitle("test");
+			Post ps1 = postRepository.findByPostId(postRepository.save(ps).getPostId());
 			Stream.of("Takoonkan", "Sitthichai", "Somchai", "Tanapon").forEach(name -> {
 				Comment cm = new Comment();
 				cm.setTitle(name);
 				cm.setPost(ps1);
 				commentRepository.save(cm);
-				ps1.getComment().add(cm);
+				// ps1.getComment().add(cm);
 				// postRepository.getComment().add(cm);
 			});
 			// postRepository.save(ps1);
+			// กรณีต้องการเพิ่ม comment ใน post นั้น
+			Post ps2 = postRepository.findByPostId(postRepository.save(ps).getPostId());
+			Comment cm1 = new Comment();
+			cm1.setTitle("test");
+			cm1.setPost(ps2);
+			commentRepository.save(cm1);
 			// postRepository.findAll().forEach(System.out::println); 
 			
 		};
