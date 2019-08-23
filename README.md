@@ -3,21 +3,19 @@
 ### ตัวอย่าง 
 1. การเพิ่มข้อมูล
 ``` java
-        Post ps = new Post(); // สร้าง object 
-		ps.setTitle("test"); // เพิ่มข้อมูล 
-		Post ps1 = postRepository.findByPostId(postRepository.save(ps).getPostId()); // บันทึกข้อมูลเเล้ว getid ของที่บันทึก
+Post ps = new Post(); // สร้าง object 
+ps.setTitle("test"); // เพิ่มข้อมูล 
+Post ps1 = postRepository.findByPostId(postRepository.save(ps).getPostId()); // บันทึกข้อมูลเเล้ว getid ของที่บันทึก
 ```
 2. เพิ่มข้อมูลในส่วน comment
 ``` java
         // วนรูปเพิ่ม comment
-        Stream.of("Takoonkan", "Sitthichai", "Somchai", "Tanapon").forEach(name -> {
-				Comment cm = new Comment();
-				cm.setTitle(name);
-				cm.setPost(ps1);
-				commentRepository.save(cm);
-				// ps1.getComment().add(cm);
-				// postRepository.getComment().add(cm);
-		});
+Stream.of("Takoonkan", "Sitthichai", "Somchai", "Tanapon").forEach(name -> {
+	Comment cm = new Comment();
+	cm.setTitle(name);
+	cm.setPost(ps1);  // set id ทีโยงกับ post
+	commentRepository.save(cm);
+});
 ```
 
 ### Entity
