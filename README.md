@@ -9,7 +9,7 @@ Post ps1 = postRepository.findByPostId(postRepository.save(ps).getPostId()); // 
 ```
 2. เพิ่มข้อมูลในส่วน comment
 ``` java
-        // วนรูปเพิ่ม comment
+        // วนเพิ่ม comment
 Stream.of("Takoonkan", "Sitthichai", "Somchai", "Tanapon").forEach(name -> {
 	Comment cm = new Comment();
 	cm.setTitle(name);
