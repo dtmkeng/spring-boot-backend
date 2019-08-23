@@ -1,7 +1,7 @@
 
 server:  
-  port: 9000
+  port: 9000 # set port
 spring:
-  h2:
+  h2: # เปิดการทำงาน h2
     console:
       enabled : true
