@@ -27,7 +27,11 @@ public class PostController {
         this.commentRepository = commentRepository;
     }
     @GetMapping("/post")
-    public Post Post() {
-        return postRepository.findByTitle("test");
+    public Collection<Post> Post() {
+        return this.postRepository.findAll().stream().collect(Collectors.toList());
+    }
+    @GetMapping("/post/{postid}")
+    public Post PostId(@PathVariable("postid") Long postid ) {
+        return this.postRepository.findByPostId(postid);
     }
 }

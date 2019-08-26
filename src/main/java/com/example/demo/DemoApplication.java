@@ -30,9 +30,11 @@ public class DemoApplication {
 			});
 			// postRepository.save(ps1);
 			// กรณีต้องการเพิ่ม comment ใน post นั้น
-			Post ps2 = postRepository.findByPostId(postRepository.save(ps).getPostId());
+			Post ps_1 = new Post();
+			ps_1.setTitle("test2");
+			Post ps2 = postRepository.findByPostId(postRepository.save(ps_1).getPostId());
 			Comment cm1 = new Comment();
-			cm1.setTitle("test");
+			cm1.setTitle("test1");
 			cm1.setPost(ps2);
 			commentRepository.save(cm1);
 			// postRepository.findAll().forEach(System.out::println); 
